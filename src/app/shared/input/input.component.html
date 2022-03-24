@@ -1,0 +1,13 @@
+<input [type]="type" [formControl]="control" [placeholder]="placeholder">
+<ng-container *ngIf="control?.touched || control?.dirty ">
+
+  <span class="badge rounded-pill bg-warning text-dark" *ngIf="control?.errors?.['required'] ">Value is
+    required
+  </span>
+
+  <span class="badge rounded-pill bg-danger" *ngIf="control?.errors?.['minlength']">
+    Value from {{control?.errors?.['minlength']?.actualLength}}
+    to: {{control?.errors?.['minlength'].requiredLength}}
+  </span>
+
+</ng-container>

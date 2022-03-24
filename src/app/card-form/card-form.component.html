@@ -1,21 +1,9 @@
 <br>
 <div class="container">
   <form [formGroup]="cardForm">
-    <input type="text" formControlName="name">
+    <app-input [control]="$any(cardForm).get('name') "></app-input>
+
   </form>
-
-  <ng-container *ngIf="cardForm.get('name')?.touched && cardForm.get('name')?.dirty ">
-
-    <span class="badge rounded-pill bg-warning text-dark" *ngIf="cardForm.get('name')?.errors?.['required'] ">Value is
-      required
-    </span>
-
-    <span class="badge rounded-pill bg-danger" *ngIf="cardForm.get('name')?.errors?.['minlength']">
-      Value from {{cardForm.get('name')?.errors?.['minlength']?.actualLength}}
-      to: {{cardForm.get('name')?.errors?.['minlength'].requiredLength}}
-    </span>
-
-  </ng-container>
 
   <br>
   <br>
