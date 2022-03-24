@@ -1,7 +1,7 @@
 <br>
 <div class="container">
   <form [formGroup]="cardForm">
-    <app-input [control]="$any(cardForm).get('name') "></app-input>
+    <app-input type="text" [label]="'Name'" [control]="$any(cardForm).get('name') "></app-input>
 
   </form>
 
