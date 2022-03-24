@@ -3,6 +3,17 @@
   <form [formGroup]="cardForm">
     <input type="text" formControlName="name">
   </form>
+  <span class="badge rounded-pill bg-warning text-dark" *ngIf="cardForm.get('name')?.errors?.['required'] ">Value is
+    required
+  </span>
+
+  <span class="badge rounded-pill bg-danger" *ngIf="cardForm.get('name')?.errors?.['minlength']">
+    Value from {{cardForm.get('name')?.errors?.['minlength']?.actualLength}}
+    to: {{cardForm.get('name')?.errors?.['minlength'].requiredLength}}
+  </span>
+
+  <br>
+  <br>
   Form Content: {{cardForm.value | json}} <br>
   Form is valid: {{cardForm.valid | json}} <br>
   Form Error: {{cardForm.get('name')?.errors | json}} <br>
