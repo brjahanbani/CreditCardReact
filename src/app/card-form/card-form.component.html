@@ -5,5 +5,6 @@
   </form>
   Form Content: {{cardForm.value | json}} <br>
   Form is valid: {{cardForm.valid | json}} <br>
+  Form Error: {{cardForm.get('name')?.errors | json}} <br>
 
 </div>
