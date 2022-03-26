@@ -1,7 +1,15 @@
 <br>
 <div class="container">
-  <form [formGroup]="cardForm">
-    <app-input type="text" [label]="'Name'" [control]="$any(cardForm).get('name') "></app-input>
+  <form [formGroup]="cardForm" (ngSubmit)="submitForm()">
+    <app-input type="text" [placeholder]="'Please enter your name'" [label]="'Name'"
+      [control]="$any(cardForm).get('name') "></app-input>
+    <app-input type="number" [placeholder]="'Card Number'" [label]="'Card Number'"
+      [control]="$any(cardForm).get('cardNumber') "></app-input>
+    <app-input type="date" [placeholder]="'Please enter Expiration Date'" [label]="'Expiration'"
+      [control]="$any(cardForm).get('expiryDate') "></app-input>
+    <app-input type="number" [placeholder]="'Please enter Security Code'" [label]="'Security Code'"
+      [control]="$any(cardForm).get('securityCode') "></app-input>
+    <button class="submit">Submit</button>
 
   </form>
 
