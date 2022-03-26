@@ -1,25 +1,27 @@
 <div class="field">
-  <label class="label">{{label}}</label>
-  <div class="control">
-    <input class="input" [type]="type" [formControl]="control" [placeholder]="placeholder">
+  <label class="label">{{label}}
+
+
+    <ng-container *ngIf="showErrors()">
+
+      <span class="badge rounded-pill bg-warning text-dark" *ngIf="control?.errors?.['required'] ">Value is
+        required
+      </span>
+
+      <span class="badge rounded-pill bg-danger" *ngIf="control?.errors?.['minlength']">
+        Value from {{control?.errors?.['minlength']?.actualLength}}
+        to: {{control?.errors?.['minlength'].requiredLength}}
+      </span>
+
+      <span class="badge rounded-pill bg-danger" *ngIf="control?.errors?.['maxlength']">
+        Value from {{control?.errors?.['maxlength']?.actualLength}}
+        to: {{control?.errors?.['maxlength'].requiredLength}}
+      </span>
+
+    </ng-container>
+  </label>
+
+  <div class="input-group mb-4 control">
+    <input class="form-control" [type]="type" [formControl]="control" [placeholder]="placeholder">
   </div>
-
-  <ng-container *ngIf="showErrors()">
-
-    <span class="badge rounded-pill bg-warning text-dark" *ngIf="control?.errors?.['required'] ">Value is
-      required
-    </span>
-
-    <span class="badge rounded-pill bg-danger" *ngIf="control?.errors?.['minlength']">
-      Value from {{control?.errors?.['minlength']?.actualLength}}
-      to: {{control?.errors?.['minlength'].requiredLength}}
-    </span>
-
-    <span class="badge rounded-pill bg-danger" *ngIf="control?.errors?.['maxlength']">
-      Value from {{control?.errors?.['maxlength']?.actualLength}}
-      to: {{control?.errors?.['maxlength'].requiredLength}}
-    </span>
-
-  </ng-container>
-
 </div>

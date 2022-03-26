@@ -3,13 +3,22 @@
   <form [formGroup]="cardForm" (ngSubmit)="submitForm()">
     <app-input type="text" [placeholder]="'Please enter your name'" [label]="'Name'"
       [control]="$any(cardForm).get('name') "></app-input>
-    <app-input type="number" [placeholder]="'Card Number'" [label]="'Card Number'"
+    <app-input type="number" [placeholder]="'Please enter Card Number'" [label]="'Card Number'"
       [control]="$any(cardForm).get('cardNumber') "></app-input>
-    <app-input type="date" [placeholder]="'Please enter Expiration Date'" [label]="'Expiration'"
-      [control]="$any(cardForm).get('expiryDate') "></app-input>
-    <app-input type="number" [placeholder]="'Please enter Security Code'" [label]="'Security Code'"
-      [control]="$any(cardForm).get('securityCode') "></app-input>
-    <button class="submit">Submit</button>
+    <div class="row">
+      <div class="col-6">
+        <app-input type="date" [placeholder]="'Please enter Expiration Date'" [label]="'Expiration'"
+          [control]="$any(cardForm).get('expiryDate') "></app-input>
+      </div>
+      <div class="col-6">
+        <app-input type="number" [placeholder]="'Please enter Security Code'" [label]="'Security Code'"
+          [control]="$any(cardForm).get('securityCode') "></app-input>
+      </div>
+
+    </div>
+    <button [disabled]="cardForm.invalid" id="button" type="button" class="submit btn btn-success">Submit</button>
+    <button [disabled]="!cardForm.dirty" type="button" class="submit btn btn-warning"
+      (click)="onResetForm()">Reset</button>
 
   </form>
 
