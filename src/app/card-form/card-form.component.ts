@@ -36,7 +36,12 @@ export class CardFormComponent implements OnInit {
   submitForm() {
     console.log(this.cardForm.value);
   }
+
   onResetForm() {
     this.cardForm.reset();
+  }
+
+  get f() {
+    return this.cardForm.controls;
   }
 }
